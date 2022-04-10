@@ -1,6 +1,9 @@
 const reset = document.getElementById('reset');
+const bow = document.getElementById('bow');
+const rainbow = document.getElementById('rainbow');
 const cont = document.querySelector('.container');
 
+let drawMode = 'bow';
 let mouseDown = false;
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
@@ -38,7 +41,13 @@ function resetCanvas() {
 
 function draw(e) {
   if (e.type === 'mouseover' && !mouseDown) return;
-  e.target.style.backgroundColor = "black"
+  if(drawMode === 'bow') e.target.style.backgroundColor = "black";
+  if(drawMode === 'rainbow') {
+    const randomR = Math.floor(Math.random()*256);
+    const randomG = Math.floor(Math.random()*256);
+    const randomB = Math.floor(Math.random()*256);
+    e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB}`
+  }
 }
 
 canvasSize(16)
