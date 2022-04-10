@@ -1,9 +1,9 @@
 let mouseDown = false;
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
+const cont = document.querySelector('.container');
 
 function newDiv(num) {  
-  const cont = document.querySelector('.container');
   const div = document.createElement('div');
   div.style.height = "100%";
   div.style.width = "100%";
@@ -15,15 +15,14 @@ function newDiv(num) {
 
 function canvasSize(num) {
   if(num < 100){
-    clearDiv('.container')
+    clearDiv()
     for(let i = 0; i < num*num; i++) {
     newDiv(num)
     }
   }
 }
 
-function clearDiv(container) {
-  const cont = document.querySelector(container);
+function clearDiv() {
   while (cont.firstChild) {
       cont.removeChild(cont.firstChild)
   }
