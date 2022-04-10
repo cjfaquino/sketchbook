@@ -9,4 +9,5 @@
 .dot {
   height: auto;
   width: auto;
+  user-select: none;
 }
