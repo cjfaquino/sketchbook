@@ -12,14 +12,14 @@ function newDiv(num) {
 
 function canvasSize(num) {
   if(num < 100){
-    deleteDiv('.container')
+    clearDiv('.container')
     for(let i = 0; i < num*num; i++) {
     newDiv(num)
     }
   }
 }
 
-function deleteDiv(container) {
+function clearDiv(container) {
   const cont = document.querySelector(container);
   while (cont.firstChild) {
       cont.removeChild(cont.firstChild)
