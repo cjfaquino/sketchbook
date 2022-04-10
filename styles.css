@@ -5,3 +5,9 @@
   height: 500px;
   width: 500px;
 }
+
+.dot {
+  height: 100%;
+  width: 100%;
+  border: 1px solid;
+}

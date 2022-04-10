@@ -6,9 +6,6 @@ const cont = document.querySelector('.container');
 function newDiv(num) {  
   const div = document.createElement('div');
   div.className = "dot";
-  div.style.height = "100%";
-  div.style.width = "100%";
-  div.style.border = "1px solid"
   cont.style = `grid-template-columns: repeat(${num}, 1fr)`
   cont.appendChild(div);
 }
