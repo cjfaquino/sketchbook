@@ -1,6 +1,10 @@
+const reset = document.getElementById('reset');
+console.log(reset);
 let mouseDown = false;
+
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
+reset.addEventListener('click', resetCanvas)
 const cont = document.querySelector('.container');
 
 function newDiv(num) {  
@@ -23,6 +27,10 @@ function clearDiv() {
   while (cont.firstChild) {
       cont.removeChild(cont.firstChild)
   }
+}
+
+function resetCanvas() {
+  divs.forEach(div => div.style.backgroundColor = "white")
 }
 
 function draw() {
