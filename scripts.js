@@ -1,11 +1,12 @@
 const reset = document.getElementById('reset');
+const cont = document.querySelector('.container');
 console.log(reset);
 let mouseDown = false;
 
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
 reset.addEventListener('click', resetCanvas)
-const cont = document.querySelector('.container');
+
 
 function newDiv(num) {  
   const div = document.createElement('div');
@@ -39,6 +40,6 @@ function draw() {
   }
 }
 
-canvasSize(32)
+canvasSize(2)
 const divs = document.querySelectorAll('.dot')
 divs.forEach(div => div.addEventListener('mouseenter', draw))
