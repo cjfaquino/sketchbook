@@ -13,6 +13,8 @@ function newDiv(num) {
   div.className = "dot";
   cont.style = `grid-template-columns: repeat(${num}, 1fr)`
   cont.appendChild(div);
+  div.addEventListener('mouseover', draw)
+  div.addEventListener('mousedown', draw)
 }
 
 function canvasSize(num) {
@@ -31,15 +33,13 @@ function clearDiv() {
 }
 
 function resetCanvas() {
+  const divs = document.querySelectorAll('.dot')
   divs.forEach(div => div.style.backgroundColor = "white")
 }
 
-function draw() {
-  if(mouseDown){
-    this.style.backgroundColor = "black"
-  }
+function draw(e) {
+  if (e.type === 'mouseover' && !mouseDown) return;
+  e.target.style.backgroundColor = "black"
 }
 
-canvasSize(2)
-const divs = document.querySelectorAll('.dot')
-divs.forEach(div => div.addEventListener('mouseenter', draw))
+canvasSize(16)
