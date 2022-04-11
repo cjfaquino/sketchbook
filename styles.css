@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.selected {
+  background-color: black;
+  color: white;
+}
+
 .wrapper {
   max-width: 1400px;
   height: 100%;
@@ -26,6 +31,7 @@ input {
 button {
   padding: 10px;
   font-size: 16px;
+  border: none;
 }
 
 h1, #sliderValue {

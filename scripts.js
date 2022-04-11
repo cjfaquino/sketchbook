@@ -24,9 +24,11 @@ function updateSize(){
 
 function changeMode(e){
   if(!e) return drawMode ='bow';
-  if(e.target.textContent === bow.textContent) return drawMode ='bow';
-  if(e.target.textContent === rainbow.textContent) return drawMode = 'rainbow';
-  if(e.target.textContent === eraser.textContent) return drawMode = 'eraser';
+  modeButtons.forEach(elem => elem.classList.remove('selected'));
+  if(e.target.textContent === bow.textContent) drawMode ='bow';
+  if(e.target.textContent === rainbow.textContent) drawMode = 'rainbow';
+  if(e.target.textContent === eraser.textContent) drawMode = 'eraser';
+  e.target.classList.add('selected');
 }
 
 function newDiv(num) {  
