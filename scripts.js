@@ -10,8 +10,14 @@ let drawMode = DEFAULT_MODE;
 let mouseDown = false;
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
+bow.addEventListener('click', changeMode)
+rainbow.addEventListener('click', changeMode)
 reset.addEventListener('click', resetCanvas)
 
+function changeMode(e){
+  if(e.target.textContent === 'Black & White') return drawMode ='bow';
+  if(e.target.textContent === 'Rainbow') return drawMode = 'rainbow';
+}
 
 function newDiv(num) {  
   const div = document.createElement('div');
