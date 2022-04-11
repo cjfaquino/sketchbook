@@ -15,16 +15,12 @@ document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
 bow.addEventListener('click', changeMode)
 rainbow.addEventListener('click', changeMode)
-darken.addEventListener('click', changeMode)
-lighten.addEventListener('click', changeMode)
 eraser.addEventListener('click', changeMode)
 reset.addEventListener('click', resetCanvas)
 
 function changeMode(e){
   if(e.target.textContent === bow.textContent) return drawMode ='bow';
   if(e.target.textContent === rainbow.textContent) return drawMode = 'rainbow';
-  if(e.target.textContent === darken.textContent) return drawMode = 'darken';
-  if(e.target.textContent === lighten.textContent) return drawMode = 'lighten';
   if(e.target.textContent === eraser.textContent) return drawMode = 'eraser';
 }
 
@@ -66,6 +62,7 @@ function draw(e) {
     const randomB = Math.floor(Math.random()*256);
     e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB}`
   }
+  if(drawMode === 'eraser') e.target.style.backgroundColor = "white";
 }
 
 canvasSize(DEFAULT_CANVAS)
