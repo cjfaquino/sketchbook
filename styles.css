@@ -6,14 +6,20 @@
 
 .wrapper {
   max-width: 1400px;
+  height: 100%;
   margin: 50px auto;
   display: flex;
   justify-content: center;
 }
 
-button, input {
-  display: block;
-  width: 200px;
+.input {
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
 }
 
 button {
@@ -23,6 +29,11 @@ button {
 
 h1, #sliderValue {
   text-align: center;
+}
+
+#reset {
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .container {
