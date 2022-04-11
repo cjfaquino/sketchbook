@@ -5,7 +5,7 @@ const outputSlider = document.querySelector('#sliderValue')
 const reset = document.getElementById('reset');
 
 let drawMode;
-let mouseDown = false;
+let mouseDown;
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
 modeButtons.forEach(element => element.addEventListener('click', changeMode));
@@ -39,11 +39,9 @@ function newDiv(num) {
 }
 
 function canvasSize(num) {
-  if(num < 64){
-    clearDiv()
-    for(let i = 0; i < num*num; i++) {
-    newDiv(num)
-    }
+  clearDiv()
+  for(let i = 0; i < num*num; i++) {
+  newDiv(num)
   }
 }
 
