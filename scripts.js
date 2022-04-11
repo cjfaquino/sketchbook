@@ -1,24 +1,29 @@
 const cont = document.querySelector('.container');
-const bow = document.getElementById('bow');
-const rainbow = document.getElementById('rainbow');
-const darken = document.getElementById('darken');
-const lighten = document.getElementById('lighten');
-const eraser = document.getElementById('eraser');
+const modeButtons = document.querySelectorAll('#bow, #rainbow, #eraser')
+const sizeSlider = document.querySelector('#canvasSize');
+const outputSlider = document.querySelector('#sliderValue')
 const reset = document.getElementById('reset');
 
-const DEFAULT_CANVAS = 32;
-const DEFAULT_MODE = 'bow';
-
-let drawMode = DEFAULT_MODE;
+let drawMode;
 let mouseDown = false;
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
-bow.addEventListener('click', changeMode)
-rainbow.addEventListener('click', changeMode)
-eraser.addEventListener('click', changeMode)
+modeButtons.forEach(element => element.addEventListener('click', changeMode));
+sizeSlider.addEventListener('change', updateSize);
+sizeSlider.addEventListener('input', updateSliderOutput)
 reset.addEventListener('click', resetCanvas)
 
+function updateSliderOutput() {
+  outputSlider.textContent = `${sizeSlider.value} x ${sizeSlider.value}`
+  return sizeSlider.value
+}
+
+function updateSize(){
+  canvasSize(updateSliderOutput());
+}
+
 function changeMode(e){
+  if(!e) return drawMode ='bow';
   if(e.target.textContent === bow.textContent) return drawMode ='bow';
   if(e.target.textContent === rainbow.textContent) return drawMode = 'rainbow';
   if(e.target.textContent === eraser.textContent) return drawMode = 'eraser';
@@ -65,4 +70,10 @@ function draw(e) {
   if(drawMode === 'eraser') e.target.style.backgroundColor = "white";
 }
 
-canvasSize(DEFAULT_CANVAS)
+function initialize(){
+  changeMode();
+  updateSliderOutput();
+  canvasSize(sizeSlider.value)
+}
+
+initialize()
