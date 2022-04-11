@@ -51,4 +51,5 @@ h1, #sliderValue {
   height: auto;
   width: auto;
   user-select: none;
+  border: 1px inset rgba(0, 0, 0, 0.021);
 }
