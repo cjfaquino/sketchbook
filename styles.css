@@ -18,6 +18,11 @@ button, input {
 
 button {
   padding: 10px;
+  margin: 20px 0;
+}
+
+#sliderValue {
+  text-align: center;
 }
 
 .container {

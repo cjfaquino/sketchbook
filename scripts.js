@@ -14,7 +14,7 @@ sizeSlider.addEventListener('input', updateSliderOutput)
 reset.addEventListener('click', resetCanvas)
 
 function updateSliderOutput() {
-  outputSlider.textContent = `${sizeSlider.value} x ${sizeSlider.value}`
+  outputSlider.textContent = `Output size: ${sizeSlider.value} x ${sizeSlider.value}`
   return sizeSlider.value
 }
 
