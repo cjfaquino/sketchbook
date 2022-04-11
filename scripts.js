@@ -3,7 +3,10 @@ const bow = document.getElementById('bow');
 const rainbow = document.getElementById('rainbow');
 const cont = document.querySelector('.container');
 
-let drawMode = 'bow';
+const DEFAULT_CANVAS = 32;
+const DEFAULT_MODE = 'bow';
+
+let drawMode = DEFAULT_MODE;
 let mouseDown = false;
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
@@ -50,4 +53,4 @@ function draw(e) {
   }
 }
 
-canvasSize(16)
+canvasSize(DEFAULT_CANVAS)
