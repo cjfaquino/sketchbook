@@ -29,7 +29,7 @@ function newDiv(num) {
 }
 
 function canvasSize(num) {
-  if(num < 100){
+  if(num < 64){
     clearDiv()
     for(let i = 0; i < num*num; i++) {
     newDiv(num)
