@@ -5,6 +5,15 @@
   justify-content: space-evenly;
 }
 
+button, input {
+  display: block;
+  width: 200px;
+}
+
+button {
+  padding: 10px;
+}
+
 .container {
   flex-shrink: 0;
   display: grid;
