@@ -1,7 +1,10 @@
-const reset = document.getElementById('reset');
+const cont = document.querySelector('.container');
 const bow = document.getElementById('bow');
 const rainbow = document.getElementById('rainbow');
-const cont = document.querySelector('.container');
+const darken = document.getElementById('darken');
+const lighten = document.getElementById('lighten');
+const eraser = document.getElementById('eraser');
+const reset = document.getElementById('reset');
 
 const DEFAULT_CANVAS = 32;
 const DEFAULT_MODE = 'bow';
@@ -12,11 +15,17 @@ document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
 bow.addEventListener('click', changeMode)
 rainbow.addEventListener('click', changeMode)
+darken.addEventListener('click', changeMode)
+lighten.addEventListener('click', changeMode)
+eraser.addEventListener('click', changeMode)
 reset.addEventListener('click', resetCanvas)
 
 function changeMode(e){
-  if(e.target.textContent === 'Black & White') return drawMode ='bow';
-  if(e.target.textContent === 'Rainbow') return drawMode = 'rainbow';
+  if(e.target.textContent === bow.textContent) return drawMode ='bow';
+  if(e.target.textContent === rainbow.textContent) return drawMode = 'rainbow';
+  if(e.target.textContent === darken.textContent) return drawMode = 'darken';
+  if(e.target.textContent === lighten.textContent) return drawMode = 'lighten';
+  if(e.target.textContent === eraser.textContent) return drawMode = 'eraser';
 }
 
 function newDiv(num) {  
