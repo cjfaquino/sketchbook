@@ -1,17 +1,24 @@
 const cont = document.querySelector('.container');
-const modeButtons = document.querySelectorAll('#bow, #rainbow, #eraser')
+const modeButtons = document.querySelectorAll('#color, #rainbow, #eraser')
+const colorPicker = document.querySelector('#colorPick');
 const sizeSlider = document.querySelector('#canvasSize');
 const outputSlider = document.querySelector('#sliderValue')
 const reset = document.getElementById('reset');
 
 let drawMode;
 let mouseDown;
+let currentColor;
 document.addEventListener('mousedown', () => {mouseDown = true})
 document.addEventListener('mouseup', () => {mouseDown = false})
 modeButtons.forEach(element => element.addEventListener('click', changeMode));
+colorPicker.addEventListener("change", getColor);
 sizeSlider.addEventListener('change', updateSize);
 sizeSlider.addEventListener('input', updateSliderOutput)
 reset.addEventListener('click', resetCanvas)
+
+function getColor() {
+  currentColor = colorPicker.value;
+}
 
 function updateSliderOutput() {
   outputSlider.textContent = `Output size: ${sizeSlider.value} x ${sizeSlider.value}`
@@ -23,9 +30,9 @@ function updateSize(){
 }
 
 function changeMode(e){
-  if(!e) return drawMode ='bow';
+  if (!e) return drawMode = 'color';
   modeButtons.forEach(elem => elem.classList.remove('selected'));
-  if(e.target.textContent === bow.textContent) drawMode ='bow';
+  if(e.target.textContent === color.textContent) drawMode ='color';
   if(e.target.textContent === rainbow.textContent) drawMode = 'rainbow';
   if(e.target.textContent === eraser.textContent) drawMode = 'eraser';
   e.target.classList.add('selected');
@@ -60,7 +67,7 @@ function resetCanvas() {
 
 function draw(e) {
   if (e.type === 'mouseover' && !mouseDown) return;
-  if(drawMode === 'bow') e.target.style.backgroundColor = "black";
+  if(drawMode === 'color') e.target.style.backgroundColor = currentColor;
   if(drawMode === 'rainbow') {
     const randomR = Math.floor(Math.random()*256);
     const randomG = Math.floor(Math.random()*256);
@@ -70,7 +77,8 @@ function draw(e) {
   if(drawMode === 'eraser') e.target.style.backgroundColor = "white";
 }
 
-function initialize(){
+function initialize() {
+  getColor();
   changeMode();
   updateSliderOutput();
   canvasSize(sizeSlider.value)
